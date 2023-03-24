@@ -316,10 +316,62 @@ if you adjust the velocity slightly..
 
 ![image](https://user-images.githubusercontent.com/76540311/227382448-16fa2f41-06c7-47cb-9635-b3ab311ae26b.png)
 
+Now, let's rewrite trickshot.cs so the user can "swipe" on the ball and release it.
 
-With some more work, with drag events put in..
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-![image](https://user-images.githubusercontent.com/76540311/227406423-ad512694-4384-4dc3-a74d-a119f443a7ac.png)
+public class trickshot : MonoBehaviour
+{
+
+    bool isDragging = false;
+    Vector2 origPosition;
+    Vector2 newPosition;
+    float time1 = 0f;
+    float time2 = 0f;
+
+    void OnMouseDrag()
+    {
+        if(!isDragging) {
+            isDragging = true;
+            origPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            time1 = Time.time;
+        }
+    }
+
+    void OnMouseUp() {
+        Debug.Log("Up");
+        isDragging = false;
+        newPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        time2 = Time.time;
+        Vector2 distance = origPosition - newPosition;
+        float velocity = distance.magnitude / (time2 - time1);
+        GetComponent<Rigidbody>().isKinematic = false;
+        GetComponent<Rigidbody>().velocity = new Vector3(velocity*0.01f,0,0);
+    }
+
+
+
+}
+```
+
+Now, when swiping, the ball should be thrown off in the direction depending
+on how fast you swiped and how far you swiped. 
+
+![image](https://user-images.githubusercontent.com/76540311/227407771-6ffcc006-607c-4d66-b7f5-126dbc0aa349.png)
+
+### Challenges
+
+I challenge you to implement rotation to the swiping (think about what info we have from the swipe vector!),
+as well as dynamically update the "velocity" on our TrajectoryController to real-time show where we
+will land if we release the ball.
+
+Note! The fact that a timer starts the instant we start holding the ball might turn 
+out to be a problem.. how do you get around that? 
+
+(Does a ball go nowhere if a person holds it for too long? How to fix?) 
 
 
 
