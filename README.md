@@ -305,12 +305,21 @@ public class TrajectoryController : MonoBehaviour
 
 Don't worry about understanding this code! It's physics.
 
-Now, make a new "line" object in our scene, apply it to our "line" in the controller.. and..
+Now, make a new "line" object in our scene, apply it to our "line" in the controller.
+
+Click the line -> Line Renderer -> and turn on "World Space".
+
+![image](https://user-images.githubusercontent.com/76540311/227406478-f3b23b8d-25ba-47a5-8358-91e9d60f9e48.png)
+
+Now click the ball again, and under TrajectoryController,
 if you adjust the velocity slightly..
 
 ![image](https://user-images.githubusercontent.com/76540311/227382448-16fa2f41-06c7-47cb-9635-b3ab311ae26b.png)
 
 
+With some more work, with drag events put in..
+
+![image](https://user-images.githubusercontent.com/76540311/227406423-ad512694-4384-4dc3-a74d-a119f443a7ac.png)
 
 
 
