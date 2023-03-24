@@ -360,7 +360,7 @@ public class trickshot : MonoBehaviour
 Now, when swiping, the ball should be thrown off in the direction depending
 on how fast you swiped and how far you swiped. 
 
-![image](https://user-images.githubusercontent.com/76540311/227407771-6ffcc006-607c-4d66-b7f5-126dbc0aa349.png)
+![ezgif-4-214c307762](https://user-images.githubusercontent.com/76540311/227407853-1863afb2-d35a-4e26-814c-3a1cf64817d6.gif)
 
 ### Challenges
 
